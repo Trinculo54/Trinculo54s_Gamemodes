@@ -19,6 +19,7 @@ install:
   - ps: dotnet tool restore
 
 build_script:
+  - ps: ls
   - ps: dotnet cake build.cake --bootstrap
   - ps: dotnet cake build.cake --pack
 
