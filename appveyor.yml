@@ -20,8 +20,7 @@ install:
 
 build_script:
   - ps: ls
-  - ps: dotnet cake build.cake --bootstrap
-  - ps: dotnet cake build.cake --pack
+  - ps: dotnet cake build.cake
 
 test: off
 
