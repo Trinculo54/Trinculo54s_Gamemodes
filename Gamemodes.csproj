@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Gamemodes</AssemblyName>
+    <RootNamespace>Infection</RootNamespace>
+    <OutputType>Library</OutputType>
+    <Nullable>annotations</Nullable>
+    <Configurations>Release;Debug</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType></DebugType>
+    <DefineConstants></DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ExtraPlayerFunctions" />
+    <None Remove="Impostor.Api" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Impostor.Api" Version="1.6.0-ci.12" />
+  </ItemGroup>
+</Project>
