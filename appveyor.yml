@@ -12,19 +12,28 @@ assembly_info:
 dotnet_csproj:
   patch: false
 
-image: Visual Studio 2019 Preview
+image: Ubuntu2004
 
 install:
   - git submodule update --init --recursive
   - ps: dotnet tool restore
 
 build_script:
-  - ps: dotnet cake build.cake
+  - ps: dotnet cake build.cake --bootstrap
+  - ps: dotnet cake build.cake --pack
 
 test: off
 
 artifacts:
   - path: ./build/*.dll
+
+# deploy:
+#   - provider: NuGet
+#     artifact: /.*(\.|\.s)nupkg/
+#     on:
+#       branch: dev
+#     api_key:
+#       secure: 4OHXl+m1KVi60hB1j54MpdP8tVv0UNfkdF4rVP+2AhAjN4a2MVT+Bl90gJZ96xHF
 
 only_commits:
   files:
